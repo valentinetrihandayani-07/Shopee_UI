@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp"
+        app:liftOnScroll="true">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/Theme.ShopeeUI.PopupOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            app:layout_scrollFlags="scroll|enterAlways|snap" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/search_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/bg_with_round"
+                android:elevation="2dp"
+                app:layout_constraintEnd_toStartOf="@id/cardview"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardview"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="70dp"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/search_view">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp"
+                    android:src="@drawable/icon_keranjang" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardview2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/search_view">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:padding="5dp"
+                    android:src="@drawable/icon_message" />
+            </androidx.cardview.widget.CardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardview3"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="@color/white"
+                android:elevation="10dp"
+                app:cardCornerRadius="20dp"
+                app:layout_constraintEnd_toEndOf="@id/cardview2"
+                app:layout_constraintStart_toStartOf="@id/search_view"
+                app:layout_constraintTop_toBottomOf="@id/search_view">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/img_scanner"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/icon_scanner"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginStart="10dp"/>
+                    <ImageView
+                        android:id="@+id/img_shopepay"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/shopeepay"
+                        app:layout_constraintStart_toEndOf="@id/img_scanner"
+                        app:layout_constraintTop_toTopOf="@id/img_scanner"
+                        android:layout_marginStart="25dp" />
+                    <TextView
+                        android:id="@+id/txt_shopeepay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:text="Rp 16.000"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@id/img_shopepay"
+                        app:layout_constraintTop_toTopOf="@id/img_shopepay" />
+
+                    <TextView
+                        android:id="@+id/txt_detail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Isi saldo shopeepay"
+                       app:layout_constraintStart_toStartOf="@id/img_shopepay"
+                        app:layout_constraintTop_toBottomOf="@id/img_shopepay"
+                        />
+
+                    <ImageView
+                        android:id="@+id/img_koin"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/icon_coin"
+                        app:layout_constraintStart_toEndOf="@id/txt_detail"
+                        app:layout_constraintTop_toTopOf="@id/txt_shopeepay"
+                        android:layout_marginStart="25dp"/>
+
+                    <TextView
+                        android:id="@+id/txt_koin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5 Koin"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        app:layout_constraintStart_toEndOf="@id/img_koin"
+                        app:layout_constraintTop_toTopOf="@id/img_koin"
+                        />
+
+                    <TextView
+                        android:id="@+id/txt_detail_koin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Klaim koin disini"
+                        app:layout_constraintStart_toStartOf="@id/img_koin"
+                        app:layout_constraintTop_toBottomOf="@id/txt_koin"
+                        />
+
+
+
+
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <ImageView
+                android:id="@+id/image_peduli_lindungi"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/img_peduli_lindung"
+                app:layout_constraintEnd_toStartOf="@+id/image_pulsa_tagihan"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardview3" />
+
+            <TextView
+                android:id="@+id/txt_peduli_lindungi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="peduli_lindungi"
+                app:layout_constraintEnd_toEndOf="@+id/image_peduli_lindungi"
+                app:layout_constraintStart_toStartOf="@+id/image_peduli_lindungi"
+                app:layout_constraintTop_toBottomOf="@id/image_peduli_lindungi" />
+
+            <ImageView
+                android:id="@+id/image_pulsa_tagihan"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/img_pulsa_tagihan_topup"
+                app:layout_constraintEnd_toStartOf="@+id/image_super_market"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/image_peduli_lindungi"
+                app:layout_constraintTop_toBottomOf="@id/cardview3" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pulsa Tagihan"
+                app:layout_constraintEnd_toEndOf="@id/image_pulsa_tagihan"
+                app:layout_constraintStart_toStartOf="@+id/image_pulsa_tagihan"
+                app:layout_constraintTop_toBottomOf="@id/image_pulsa_tagihan" />
+
+            <ImageView
+                android:id="@+id/image_super_market"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/supermarket"
+                app:layout_constraintEnd_toStartOf="@+id/image_shopee_mall"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/image_pulsa_tagihan"
+                app:layout_constraintTop_toBottomOf="@id/cardview3" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Super market"
+                app:layout_constraintEnd_toEndOf="@id/image_super_market"
+                app:layout_constraintStart_toStartOf="@+id/image_super_market"
+                app:layout_constraintTop_toBottomOf="@id/image_super_market" />
+
+            <ImageView
+                android:id="@+id/image_shopee_mall"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/img_shopee_mall"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/image_super_market"
+                app:layout_constraintTop_toBottomOf="@id/cardview3" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Super Market"
+                app:layout_constraintEnd_toEndOf="@id/image_shopee_mall"
+                app:layout_constraintStart_toStartOf="@+id/image_shopee_mall"
+                app:layout_constraintTop_toBottomOf="@id/image_shopee_mall" />
+
+            <ImageView
+                android:id="@+id/image_gratis_ongkir"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/img_gratis_ongkir_voucher_"
+                app:layout_constraintEnd_toStartOf="@+id/image_shopee_games"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_peduli_lindungi" />
+
+            <TextView
+                android:id="@+id/txt_gratis_ongkir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="gratis ongkir"
+                app:layout_constraintEnd_toEndOf="@id/image_gratis_ongkir"
+                app:layout_constraintStart_toStartOf="@+id/image_gratis_ongkir"
+                app:layout_constraintTop_toBottomOf="@id/image_gratis_ongkir" />
+
+            <ImageView
+                android:id="@+id/image_shopee_games"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/img_games"
+                app:layout_constraintEnd_toStartOf="@+id/image_bayar"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/image_gratis_ongkir"
+                app:layout_constraintTop_toTopOf="@id/image_gratis_ongkir" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shopee Games"
+                app:layout_constraintEnd_toEndOf="@id/image_shopee_games"
+                app:layout_constraintStart_toStartOf="@+id/image_shopee_games"
+                app:layout_constraintTop_toBottomOf="@id/image_shopee_games" />
+
+            <ImageView
+                android:id="@+id/image_bayar"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/img_cod"
+                app:layout_constraintEnd_toStartOf="@+id/image_shopee_food"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/image_shopee_games"
+                app:layout_constraintTop_toTopOf="@id/image_shopee_games" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bayar ditempat"
+                app:layout_constraintEnd_toEndOf="@id/image_bayar"
+                app:layout_constraintStart_toStartOf="@+id/image_bayar"
+                app:layout_constraintTop_toBottomOf="@id/image_bayar" />
+
+            <ImageView
+                android:id="@+id/image_shopee_food"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/sfood"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/image_bayar"
+                app:layout_constraintTop_toTopOf="@id/image_bayar" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shopee food"
+                app:layout_constraintEnd_toEndOf="@id/image_shopee_food"
+                app:layout_constraintStart_toStartOf="@+id/image_shopee_food"
+                app:layout_constraintTop_toBottomOf="@id/image_shopee_food" />
+
+
+--
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardview4"
+                android:layout_width="0dp"
+                android:layout_height="98dp"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/white"
+                android:elevation="10dp"
+                app:cardCornerRadius="20dp"
+                app:layout_constraintEnd_toEndOf="@id/image_shopee_food"
+                app:layout_constraintStart_toStartOf="@id/image_gratis_ongkir"
+                app:layout_constraintTop_toBottomOf="@id/txt_gratis_ongkir">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/shopeban"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:src="@drawable/img_banner1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/seabank"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:src="@drawable/img_seabank"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/shopeban"
+                        app:layout_constraintTop_toTopOf="@id/shopeban" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+<!--            <TextView-->
+<!--                android:id="@+id/txt_save"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Flash Shale"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/cardview4"-->
+<!--                android:textStyle="bold"-->
+<!--                app:layout_constraintStart_toStartOf="@id/cardview4"-->
+<!--                app:layout_constraintEnd_toEndOf="@id/cardview4"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:layout_marginTop="8dp"-->
+<!--                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"/>-->
+
+
+--
+<!--            <androidx.cardview.widget.CardView-->
+<!--                android:id="@+id/cdv_miband"-->
+<!--                android:layout_width="28dp"-->
+<!--                android:layout_height="28dp"-->
+<!--                android:layout_marginStart="8dp"-->
+<!--                app:cardCornerRadius="8dp"-->
+<!--                app:layout_constraintEnd_toStartOf="@+id/cd_scarlet"-->
+<!--                app:layout_constraintHorizontal_bias="0.5"-->
+<!--                app:layout_constraintStart_toEndOf="@+id/cdv_scarlet"-->
+<!--                app:layout_constraintTop_toTopOf="@id/cdv_scarlet">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:src="@drawable/img_miband" />-->
+<!--            </androidx.cardview.widget.CardView>-->
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
